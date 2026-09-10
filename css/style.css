@@ -1159,4 +1159,11 @@ img {
   color: var(--color-text-sub);
 }
 
+@media (max-width: 480px) {
+  .footer-nav ul {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0 .625rem;
+  }
+}
+
 
