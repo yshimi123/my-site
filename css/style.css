@@ -526,11 +526,22 @@ img {
     gap: .625rem;
   }
 
-  /* .point-card:nth-of-type(2) {
-    display: flex;
+  .point-card:nth-of-type(2) {
     flex-direction: column;
-    gap: .625rem;
-  } */
+  }
+}
+
+@media (max-width: 480px) {
+  .point-card-g  {
+    padding: 0 1.75rem;
+  }
+
+  .point-card.first::after {
+    width: 5rem;
+    height: 5rem;
+    top: -40px;
+    left: -40px;
+  }
 }
 
 /* ----- ギャラリー　みんなの作品 ------ */
@@ -752,8 +763,11 @@ img {
   .class-box.second,
   .class-box.forth {
     flex-direction: column;
-    padding: 1.5rem;
     margin-bottom: 2.5rem;
+  }
+
+  .class-box {
+    padding: 0;
   }
   
 
@@ -977,6 +991,19 @@ img {
 .front {
   position: relative;
 }
+
+@media (max-width: 680px) {
+  .cta-box {
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+
+  .cta-img img {
+    width: 80%;
+    margin: 0 auto;
+  }
+ 
+}
 /*  ここまで体験レッスンを予約する ------------------ */
 .access {
   background-color: var(--color-bgc-b);
@@ -986,6 +1013,8 @@ img {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3.75rem;
+  padding: 0 6.25rem;
+  margin-bottom: 7.5rem;
 }
 
 .access-train {
@@ -1010,7 +1039,7 @@ img {
   aspect-ratio: 1 / 1;
 }
 
-.map ifram {
+.map iframe {
   position: absolute;
   top: 0;
   left: 0;
@@ -1030,6 +1059,43 @@ img {
 .address p {
   font-size: clamp(1rem, 0.897rem + 0.47vw, 1.25rem);
   line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .access-g {
+    grid-template-columns: 1fr;
+    padding: 0 3.125rem;
+  }
+
+  .train-list:last-child {
+    margin-bottom: 0;
+  }
+
+  .access-train  {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .address {
+    text-align: center;
+  }
+
+  .map iframe {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .access-train {
+    flex-direction: column;
+  }
+
+  .access-g {
+    padding: 0 .625rem;
+    margin-bottom: 5.25rem;
+  }
 }
 /* footer ---------------------------- */
 .footer {
