@@ -328,8 +328,16 @@ img {
 .paint-bg {
   position: absolute;
   aspect-ratio: 418.82 / 395.5;
+  opacity: 0; /* 最初は隠しておく */
+  
+  /* アニメーションを設定しておくが、最初は一時停止(paused)にしておく */
   animation: paint-bg 0.3s ease-out forwards;
-  /* opacity: 0; */
+  animation-play-state: paused;
+}
+
+/* JSで .is-active がついたらアニメーション再生！ */
+.paint-bg.is-active {
+  animation-play-state: running;
 }
 
 @keyframes paint-bg {
@@ -346,7 +354,7 @@ img {
   top: 3.125rem;
   right: -1.25rem;
   transform: rotate(15deg);
-  animation-delay: 0s;
+  animation-delay: .3s;
 }
 
 .paint-bg.type2 {
@@ -357,7 +365,7 @@ img {
   top: 14.75rem;
   left: 0;
   transform: rotate(-25deg);
-  animation-delay: 0.4s;
+  animation-delay: 0.5s;
 }
 
 .paint-bg.type3 {
@@ -368,7 +376,7 @@ img {
   bottom: 3.125rem;
   right: 4.125rem;
   transform: rotate(40deg);
-  animation-delay: 0.6s;
+  animation-delay: 0.8s;
 }
 
 .sub-title {
