@@ -303,6 +303,17 @@ img {
   text-align: center;
 }
 
+.fade-in {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.fade-in.is-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .about-shapes {
   position: absolute;
   top: 0;
@@ -314,39 +325,50 @@ img {
 }
 
 /* SVG各個体のサイズと位置指定 */
-.about-illustration {
+.paint-bg {
   position: absolute;
   aspect-ratio: 418.82 / 395.5;
+  animation: paint-bg 0.3s ease-out forwards;
+  /* opacity: 0; */
 }
 
-.about-illustration.type1 {
+@keyframes paint-bg {
+  0% { opacity: 0; transform: scale(0) rotate(15deg);}
+  /* 70% { opacity: .5; transform: scale(1.1) rotate(15deg);} */
+  100% { opacity: 1; transform: scale(1) rotate(15deg);}
+}
+
+.paint-bg.type1 {
   width: 340px;
   height: auto;
   fill: #de430f;
-  opacity: 0.8;
+  /* opacity: 0.8; */
   top: 3.125rem;
   right: -1.25rem;
   transform: rotate(15deg);
+  animation-delay: 0s;
 }
 
-.about-illustration.type2 {
+.paint-bg.type2 {
   width: 300px;
   height: auto;
   fill: #e843d2;
-  opacity: 0.75;
-  top: 8.75rem;
+  /* opacity: 0.75; */
+  top: 14.75rem;
   left: 0;
   transform: rotate(-25deg);
+  animation-delay: 0.4s;
 }
 
-.about-illustration.type3 {
+.paint-bg.type3 {
   width: 190px;
   height: auto;
   fill: #3030c7;
-  opacity: 0.7;
+  /* opacity: 0.7; */
   bottom: 3.125rem;
-  right: 8.125rem;
+  right: 4.125rem;
   transform: rotate(40deg);
+  animation-delay: 0.6s;
 }
 
 .sub-title {
@@ -536,12 +558,20 @@ img {
     padding: 0 1.75rem;
   }
 
-  .point-card.first::after {
+  .point-card.first::after,
+  .point-card.third::after  {
     width: 5rem;
     height: 5rem;
     top: -40px;
     left: -40px;
   }
+
+  .point-card.second::after {
+    width: 5rem;
+    height: 5rem;
+    top: -40px;
+    right: -40px;
+  } 
 }
 
 /* ----- ギャラリー　みんなの作品 ------ */
@@ -1161,7 +1191,7 @@ img {
 
 @media (max-width: 480px) {
   .footer-nav ul {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     padding: 0 .625rem;
   }
 }
