@@ -402,6 +402,22 @@ img {
   line-height: 1.8;
 }
 
+@media (max-width: 480px) {
+  .about {
+    padding: 0 1.25rem;
+  }
+  .paint-bg.type1 {
+    width: 13.75rem;
+  }
+  .paint-bg.type2 {
+    width: 11.875rem;
+  }
+  .paint-bg.type3 {
+    width: 8.75rem;
+  }
+ 
+}
+
 /* ここから point-section 3つの特徴 ----------------- */
 .point-section {
   background-color: var(--color-bgc-b);
@@ -963,13 +979,16 @@ img {
 
 .cta-box {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 1.25fr;
   gap: 2.5rem;
   padding: 0 1.875rem;
 }
 
 .cta-img img {
-  border-radius: 999px;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .cta-text-g {
@@ -1045,7 +1064,6 @@ img {
   }
 
   .cta-img img {
-    width: 80%;
     margin: 0 auto;
   }
  
