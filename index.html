@@ -8,7 +8,7 @@
     </title>
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./js/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,7 +21,10 @@
       <div class="header-inner">
         <h1>
           <a href="index.html"
-            ><img src="./img/logo.png" alt="こどもアートキャンパスのロゴ"
+            ><img
+              src="./img/logo.png"
+              alt="こどもアートキャンパスのロゴ"
+              loading="lazy"
           /></a>
         </h1>
         <button class="hamburger-btn">
@@ -48,7 +51,11 @@
           <div class="hero-container">
             <p class="hero-sub">自由な発想をカタチにする</p>
             <h2 class="hero-title">
-              <img src="./img/logo.png" alt="こどもキャンパスアートのロゴ" />
+              <img
+                src="./img/logo.png"
+                alt="こどもキャンパスアートのロゴ"
+                loading="lazy"
+              />
             </h2>
             <div class="acction-btn">
               <a href="#contact" class="btn btn-large">無料体験こちら</a>
@@ -60,10 +67,12 @@
             <source
               media="(max-width: 768px)"
               srcset="./img/hero-img-sp.jpeg"
+              loading="lazy"
             />
             <img
               src="./img/hero-img.png"
               alt="手のひらに絵の具をつけた笑顔の女の子"
+              loading="lazy"
             />
           </picture>
         </div>
@@ -126,7 +135,11 @@
           <ul class="point-card-g flex">
             <div class="point-card first">
               <div class="img-area">
-                <img src="./img/paint-img1.jpeg" alt="手ぶらで参加！レンタル完備" />
+                <img
+                  src="./img/paint-img1.jpeg"
+                  alt="手ぶらで参加！レンタル完備"
+                  loading="lazy"
+                />
               </div>
               <div class="text-area">
                 <h4 class="card-title">手ぶらで参加！レンタル完備</h4>
@@ -137,7 +150,11 @@
             </div>
             <div class="point-card second">
               <div class="img-area">
-                <img src="./img/paint-img2.jpeg" alt="安全マークの道具で安心環境" />
+                <img
+                  src="./img/paint-img2.jpeg"
+                  alt="安全マークの道具で安心環境"
+                  loading="lazy"
+                />
               </div>
               <div class="text-area">
                 <h4 class="card-title">安全マークの道具で安心環境</h4>
@@ -149,7 +166,11 @@
 
             <div class="point-card third">
               <div class="img-area">
-                <img src="./img/paint-img3.jpeg" alt="予約なしでOK！" />
+                <img
+                  src="./img/paint-img3.jpeg"
+                  alt="予約なしでOK！"
+                  loading="lazy"
+                />
               </div>
               <div class="text-area">
                 <h4 class="card-title">予約なしでOK！</h4>
@@ -170,62 +191,69 @@
           <p class="section-sub">gallery</p>
           <h2 class="section-title">みんなの作品</h2>
           <div class="gallery-slider-wrap">
-            <!-- Swiper本体 -->
-            <div class="swiper gallery-swiper">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide gallery-card">
-                  <img src="./img/gallery-1.png" alt="男の子" />
+            <div class="loop-slider">
+              <ul class="loop-track">
+                <li class="loop-slider-list gallery-card">
+                  <img src="./img/gallery-1.png" alt="男の子" loading="lazy" />
                   <div class="art-info">
                     <p class="art-title">太陽の下の男の子</p>
                     <p class="art-age">5歳</p>
                   </div>
-                </div>
-                <div class="swiper-slide gallery-card">
-                  <img src="./img/gallery-2.png" alt="クジラ" />
+                </li>
+                <li class="loop-slider-list gallery-card">
+                  <img src="./img/gallery-2.png" alt="クジラ" loading="lazy" />
                   <div class="art-info">
                     <p class="art-title">大きなクジラ</p>
                     <p class="art-age">6歳</p>
                   </div>
-                </div>
-                <div class="swiper-slide gallery-card">
-                  <img src="./img/gallery-3.png" alt="ボクのロボット" />
+                </li>
+                <li class="loop-slider-list gallery-card">
+                  <img
+                    src="./img/gallery-3.png"
+                    alt="ボクのロボット"
+                    loading="lazy"
+                  />
                   <div class="art-info">
                     <p class="art-title">ボクのロボット</p>
                     <p class="art-age">6歳</p>
                   </div>
-                </div>
-                <div class="swiper-slide gallery-card">
-                  <img src="./img/gallery-4.png" alt="カラフルなお花" />
+                </li>
+                <li class="loop-slider-list gallery-card">
+                  <img
+                    src="./img/gallery-4.png"
+                    alt="カラフルなお花"
+                    loading="lazy"
+                  />
                   <div class="art-info">
                     <p class="art-title">お花</p>
                     <p class="art-age">4歳</p>
                   </div>
-                </div>
-                <div class="swiper-slide gallery-card">
-                  <img src="./img/gallery-5.png" alt="かっこいいライオン" />
+                </li>
+                <li class="loop-slider-list gallery-card">
+                  <img
+                    src="./img/gallery-5.png"
+                    alt="かっこいいライオン"
+                    loading="lazy"
+                  />
                   <div class="art-info">
                     <p class="art-title">強いライオン</p>
                     <p class="art-age">6歳</p>
                   </div>
-                </div>
-                <div class="swiper-slide gallery-card">
-                  <img src="./img/gallery-6.png" alt="太陽の下の女の子" />
+                </li>
+                <li class="loop-slider-list gallery-card">
+                  <img
+                    src="./img/gallery-6.png"
+                    alt="太陽の下の女の子"
+                    loading="lazy"
+                  />
                   <div class="art-info">
                     <p class="art-title">太陽とわたし</p>
                     <p class="art-age">3歳</p>
                   </div>
-                </div>
-              </div>
+                </li>
+              </ul>
             </div>
-
-            <!-- 矢印ボタン（Swiperの外側に配置） -->
-            <button class="swiper-button-prev" aria-label="前へ"></button>
-            <button class="swiper-button-next" aria-label="次へ"></button>
           </div>
-          <div class="swiper-pagination"></div>
-        </div>
-        <div class="cta-btn gallery-btn">
-          <a href="#contact" class="btn btn-large">ギャラリーを見る</a>
         </div>
       </section>
       <!-- /ここまでがギャラリー ---------------------->
@@ -247,10 +275,7 @@
                 </p>
               </div>
               <div class="class-img">
-                <img
-                  src="./img/class-01.jpg"
-                  alt="色彩クラス"
-                />
+                <img src="./img/class-01.jpg" alt="色彩クラス" loading="lazy" />
               </div>
             </div>
             <div class="class-box second">
@@ -263,10 +288,7 @@
                 </p>
               </div>
               <div class="class-img">
-                <img
-                  src="./img/class-02.jpg"
-                  alt="工作クラス"
-                />
+                <img src="./img/class-02.jpg" alt="工作クラス" loading="lazy" />
               </div>
             </div>
             <div class="class-box third">
@@ -283,6 +305,7 @@
                 <img
                   src="./img/class-03.jpg"
                   alt="アート探検クラス"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -336,6 +359,7 @@
                 <img
                   src="./img/class-04.jpg"
                   alt="オンラインクラス"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -473,7 +497,7 @@
           </div>
           <div class="cta-box">
             <div class="cta-img">
-              <img src="./img/cta-img.jpg" alt="体験レッスン" />
+              <img src="./img/cta-img.jpg" alt="体験レッスン" loading="lazy" />
             </div>
             <div class="cta-text-g">
               <div class="cta-title">わくわくのアート体験へ出かけよう</div>
@@ -528,17 +552,26 @@
         <div class="footer-inner">
           <div class="footer-info">
             <h2 class="footer-logo">
-              <img src="./img/logo.png" alt="こどもアートキャンパスのロゴ" />
+              <img
+                src="./img/logo.png"
+                alt="こどもアートキャンパスのロゴ"
+                loading="lazy"
+              />
             </h2>
             <p class="footer-address">
               〒145-0071<br />東京都大田区田園調布1丁目55
             </p>
           </div>
           <div class="footer-sns">
-            <img src="./img/Facebook_Logo_Primary.png" alt="フェイスブック" />
+            <img
+              src="./img/Facebook_Logo_Primary.png"
+              alt="フェイスブック"
+              loading="lazy"
+            />
             <img
               src="./img/Instagram_Glyph_Gradient.png"
               alt="インスタグラム"
+              loading="lazy"
             />
           </div>
           <nav class="footer-nav">
@@ -562,30 +595,7 @@
     </main>
     <script src="./js/swiper-bundle.min.js"></script>
     <script src="swiper-bundle.min.js"></script>
-    <script>
-      const gallerySwiper = new Swiper(".gallery-swiper", {
-        loop: true,
-        slidesPerView: 3,
-        spaceBetween: 40,
-        speed: 5000, // スライドが切り替わる速度（ミリ秒単位）
-        autoplay: {
-          delay: 0,
-          disableOnInteraction: false,
-        },
 
-        // ページネーション（ドット）
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true, // ドットをクリック可能にする
-        },
-
-        // 左右の矢印ボタン
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-      });
-    </script>
     <script>
       const btn = document.querySelector(".hamburger-btn");
       const menu = document.querySelector(".header-menu");
@@ -619,9 +629,21 @@
           rootMargin: "0px 0px -10% 0px", // 画面の下から10%入った位置で発火（タイミング調整用）
         },
       );
-
       // 各要素の監視を開始
       fadeInElements.forEach((el) => observer.observe(el));
+      
+      const initCarousel = () => {
+      const lists = gsap.utils.toArray('.loop-track');
+
+        const loop = gsap.to(lists, {
+          xPercent: -100,
+          ease: "none",
+          duration: 30,
+          repeat: -1,
+        });
+      };
+
+      document.addEventListener("DOMContentLoaded", initCarousel);
     </script>
   </body>
 </html>
