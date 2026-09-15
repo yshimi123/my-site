@@ -603,10 +603,6 @@ img {
 
 .gallery-slider-wrap {
   width: 100%;
-  aspect-ratio: 1 / 1;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  place-content: center;
 }
 
 .loop-slider {
@@ -651,8 +647,6 @@ img {
     width: 12.5rem;
   }
 }
-
-
 
 /* コースの案内　ーーーーーーーーーーーーーーー */
 .class-section {
@@ -769,6 +763,10 @@ img {
   object-fit: cover;
 }
 
+.sp-br {
+  display: none;
+}
+
 @media (max-width:768px) {
   .class-box,
   .class-box.second,
@@ -789,6 +787,10 @@ img {
 @media (max-width: 480px) {
   .class-group {
     padding: 0 .625rem;
+  }
+
+  .sp-br {
+    display: inline;
   }
 }
 /*  ここまでコースの案内 ---------------------- */
