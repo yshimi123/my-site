@@ -594,65 +594,65 @@
       </footer>
       <!-- ここまでfooter ---------------------------->
     </main>
-    <script src="./js/swiper-bundle.min.js"></script>
-    <script src="swiper-bundle.min.js"></script>
-    <!-- ハンバーガーメニュー -->
     <script>
+// 1. ハンバーガーメニュー
       const btn = document.querySelector(".hamburger-btn");
       const menu = document.querySelector(".header-menu");
-      btn.addEventListener("click", function () {
-        btn.classList.toggle("is-open");
-        menu.classList.toggle("is-open");
-      });
+      if (btn && menu) {
+        btn.addEventListener("click", function () {
+          btn.classList.toggle("is-open");
+          menu.classList.toggle("is-open");
+        });
+      }
+
+      // 2. FAQアコーディオン
       document.querySelectorAll(".faq-question").forEach((button) => {
         button.addEventListener("click", () => {
           const faqItem = button.closest(".faq-item");
-          faqItem.classList.toggle("is-open");
+          if (faqItem) {
+            faqItem.classList.toggle("is-open");
+          }
         });
       });
 
-     // === STEP要素を左から順番に時間差で表示させる設定 ===
+      // 3. STEP要素を左から順番に時間差で表示させる設定
       const flowItems = document.querySelectorAll(".flow-item");
       flowItems.forEach((item, index) => {
-        // 1番目は0秒、2番目は0.15秒、3番目は0.3秒…というように遅延時間を計算して設定
         item.style.transitionDelay = `${index * 0.15}s`;
       });
 
-      // === 監視対象の要素をまとめる（フェードイン・ペイント・STEPアイテム） ===
-      const animateElements = document.querySelectorAll(".fade-in, .paint-bg, .flow-item");
+      // 4. 監視対象の要素を定義（ここでしっかり変数を作っています！）
+      const fadeInElements = document.querySelectorAll(".fade-in, .paint-bg, .flow-item");
 
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              // 画面内に入ったら .is-active を付与
               entry.target.classList.add("is-active");
             } else {
-              // 画面から出たら外す（何度でも繰り返しアニメーションさせる場合）
               entry.target.classList.remove("is-active");
             }
           });
         },
         {
-          rootMargin: "0px 0px -10% 0px", // 画面下から10%入った位置で発火
+          rootMargin: "0px 0px -10% 0px",
         }
       );
 
-      // すべての要素の監視をスタート
-      animateElements.forEach((el) => observer.observe(el));
-      
-      // 各要素の監視を開始
+      // 定義した要素たちの監視をスタート
       fadeInElements.forEach((el) => observer.observe(el));
 
+      // 5. カルーセル（GSAP）
       const initCarousel = () => {
         const lists = gsap.utils.toArray(".loop-track");
-
-        const loop = gsap.to(lists, {
-          xPercent: -100,
-          ease: "none",
-          duration: 30,
-          repeat: -1,
-        });
+        if (lists.length > 0) {
+          gsap.to(lists, {
+            xPercent: -100,
+            ease: "none",
+            duration: 30,
+            repeat: -1,
+          });
+        }
       };
 
       document.addEventListener("DOMContentLoaded", initCarousel);
