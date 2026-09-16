@@ -59,6 +59,18 @@ img {
   height: auto;
 }
 
+/* 共通fade-in --------------------------- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+
+.fade-in.is-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* header -------------------- */
 .site-header h1 {
   flex: 0 1 18.75rem;
@@ -118,7 +130,6 @@ img {
   display: none;
 }
 
-/*  画面幅が 960px 以下のとき（スマホ用） */
 @media (max-width: 960px) {
 
 .header-inner {
@@ -303,17 +314,6 @@ img {
   text-align: center;
 }
 
-.fade-in {
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 1s ease, transform 1s ease;
-}
-
-.fade-in.is-active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 .about-shapes {
   position: absolute;
   top: 0;
@@ -328,22 +328,15 @@ img {
 .paint-bg {
   position: absolute;
   aspect-ratio: 418.82 / 395.5;
-  opacity: 0; /* 最初は隠しておく */
-  
-  /* アニメーションを設定しておくが、最初は一時停止(paused)にしておく */
-  animation: paint-bg 0.3s ease-out forwards;
-  animation-play-state: paused;
+  opacity: 0;
+  transform: opacity .4s ease, transform .4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform: scale(0) rotate(15deg);
 }
 
 /* JSで .is-active がついたらアニメーション再生！ */
 .paint-bg.is-active {
-  animation-play-state: running;
-}
-
-@keyframes paint-bg {
-  0% { opacity: 0; transform: scale(0) rotate(15deg);}
-  /* 70% { opacity: .5; transform: scale(1.1) rotate(15deg);} */
-  100% { opacity: 1; transform: scale(1) rotate(15deg);}
+  opacity: 1;
+  transform: scale(1) rotate(15deg);
 }
 
 .paint-bg.type1 {
@@ -353,8 +346,7 @@ img {
   /* opacity: 0.8; */
   top: 3.125rem;
   right: -1.25rem;
-  transform: rotate(15deg);
-  animation-delay: .3s;
+  transition-delay: .3s;
 }
 
 .paint-bg.type2 {
@@ -364,8 +356,7 @@ img {
   /* opacity: 0.75; */
   top: 14.75rem;
   left: 0;
-  transform: rotate(-25deg);
-  animation-delay: 0.5s;
+  transition-delay: .5s;
 }
 
 .paint-bg.type3 {
@@ -375,8 +366,7 @@ img {
   /* opacity: 0.7; */
   bottom: 3.125rem;
   right: 4.125rem;
-  transform: rotate(40deg);
-  animation-delay: 0.8s;
+  transition-delay: .8s;
 }
 
 .sub-title {
@@ -756,15 +746,25 @@ img {
   border-radius: var(--border-radius-large);
   overflow: hidden;
   box-shadow: 2px 5px 10px rgba(0 0 0 / .1);
+  aspect-ratio: 1 / 1;
+  align-self: center;
 }
 
 .class-img img {
-  aspect-ratio: 1 / 1;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .sp-br {
   display: none;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .class-card {
+    aspect-ratio: 1 / 1;
+  }
 }
 
 @media (max-width:768px) {
@@ -773,10 +773,7 @@ img {
   .class-box.forth {
     flex-direction: column;
     margin-bottom: 2.5rem;
-  }
-
-  .class-box {
-    padding: 0;
+    padding: 1.25rem;
   }
 
   .class-group {
