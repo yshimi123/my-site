@@ -500,7 +500,7 @@
             <div class="cta-img">
               <img src="./img/cta-img.jpg" alt="体験レッスン" loading="lazy" />
             </div>
-            <div class="cta-text-g">
+            <div class="cta-text-g fade-in">
               <div class="cta-title">わくわくのアート体験へ出かけよう</div>
               <p>
                 お子様の自由な発想とたくさんの笑顔に出会える、特別な体験レッスン。
@@ -523,7 +523,7 @@
             <span class="section-sub">ACCESS</span>
             <div class="section-title">アクセス</div>
           </div>
-          <div class="access-g">
+          <div class="access-g fade-in">
             <div class="access-list">
               <ul class="access-train">
                 <li class="train-list">東急線多摩川駅南口より徒歩3分</li>
@@ -611,25 +611,36 @@
         });
       });
 
-      // 監視対象の要素をすべて取得(ペイントとフェードイン)
-      const fadeInElements = document.querySelectorAll(".fade-in, .paint-bg");
+     // === STEP要素を左から順番に時間差で表示させる設定 ===
+      const flowItems = document.querySelectorAll(".flow-item");
+      flowItems.forEach((item, index) => {
+        // 1番目は0秒、2番目は0.15秒、3番目は0.3秒…というように遅延時間を計算して設定
+        item.style.transitionDelay = `${index * 0.15}s`;
+      });
+
+      // === 監視対象の要素をまとめる（フェードイン・ペイント・STEPアイテム） ===
+      const animateElements = document.querySelectorAll(".fade-in, .paint-bg, .flow-item");
+
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
-            // 画面内に入ったら .is-active クラスを付与
             if (entry.isIntersecting) {
+              // 画面内に入ったら .is-active を付与
               entry.target.classList.add("is-active");
             } else {
-              // 画面から出たとき：クラスを外して初期状態に戻す
+              // 画面から出たら外す（何度でも繰り返しアニメーションさせる場合）
               entry.target.classList.remove("is-active");
             }
           });
         },
         {
-          // 画面の下から10%入った位置で発火（タイミング調整用）
-          rootMargin: "0px 0px -10% 0px",
-        },
+          rootMargin: "0px 0px -10% 0px", // 画面下から10%入った位置で発火
+        }
       );
+
+      // すべての要素の監視をスタート
+      animateElements.forEach((el) => observer.observe(el));
+      
       // 各要素の監視を開始
       fadeInElements.forEach((el) => observer.observe(el));
 
